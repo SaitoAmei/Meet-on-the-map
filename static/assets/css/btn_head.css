@@ -1,0 +1,86 @@
+.header__reg_btn{
+   text-decoration: none;
+   display: inline-block;
+   border-radius: 25px;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 11px;
+   text-transform: uppercase;
+   text-align: center;
+   letter-spacing: 3px;
+   font-weight: 600;
+   color: #fff;
+   background: #0c0c0c;
+   box-shadow: 0 8px 15px rgb(0 0 0 / 10%);
+   transition: .3s;
+   border: solid 2px #fff;
+   line-height: 30px;
+   font-weight: 800;
+   left: 16%;
+   position: absolute;
+}
+.header__reg_btn:hover {
+   background: #5194bd;
+}
+
+}
+
+
+.header__reg_btn.is-active{
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity .4s ease-in-out .4s;
+  transition: opacity .4s ease-in-out .4s;
+
+}
+
+.header__reg_btn_list {
+   text-decoration: none;
+   display: inline-block;
+   border-radius: 25px;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 11px;
+   text-transform: uppercase;
+   text-align: center;
+   letter-spacing: 3px;
+   font-weight: 600;
+   color: #fff;
+   background: #0c0c0c;
+   box-shadow: 0 8px 15px rgb(0 0 0 / 10%);
+   transition: .3s;
+   border: solid 2px #fff;
+   line-height: 30px;
+   font-weight: 800;
+   position: absolute;
+   left: 70%;
+}
+.header__reg_btn_list:hover {
+   background: #5194bd;
+}
+
+
+
+
+.header__reg_btn_reg_event {
+   text-decoration: none;
+   display: inline-block;
+   border-radius: 25px;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 11px;
+   text-transform: uppercase;
+   text-align: center;
+   letter-spacing: 3px;
+   font-weight: 600;
+   color: #fff;
+   background: #0c0c0c;
+   box-shadow: 0 8px 15px rgb(0 0 0 / 10%);
+   transition: .3s;
+   border: solid 2px #fff;
+   line-height: 30px;
+   font-weight: 800;
+   position: absolute;
+   left: 83%;
+}
+.header__reg_btn_reg_event:hover {
+   background: #5194bd;
+}
+

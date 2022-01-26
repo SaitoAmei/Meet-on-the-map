@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+ 
+
+*{
+  box-sizing: border-box;
+}
+
+.reg_form{
+  margin: 0;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+.container_reg{
+  width: 800px;
+  height: 550px;
+  padding: 40px 0;
+
+  position: relative;
+}
+
+
+.block{
+  height: 100% ;
+  box-shadow: 0 5px 45px rgba(250, 250, 250, 1); 
+  border-radius: 25px;
+
+  display: flex;
+  align-items: center;
+}
+
+.block-item{
+  width: 50%;
+}
+
+/* Елементи блоків */
+
+.block-item{
+  text-align: center;
+}
+
+.block-item__title{
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.block-item__btn{
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #333;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 25px;
+
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  
+}
+
+/*Блок форми*/
+
+.form-box{
+  background-color: #5194bd;
+  height: 100%;
+  width: 50%;
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+
+  transition: 0.5s ease-in-out;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.form-box.active{
+  left: 50%;
+}
+
+.form__title{
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 24px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.form{
+  width: 100%;
+  padding: 50px;
+  font-size: 16px;
+
+  position: absolute;
+  transition: 0.5s;
+}
+
+.form_signin{
+  left: 0;
+  transition-delay: 0.25s;
+}
+.form_signup{
+  left: 100%;
+  transition-delay: 0s;
+}
+
+.form-box.active .form_signin{
+  left: -100%;
+  transition-delay: 0s;
+}
+.form-box.active .form_signup{
+  left: 0;
+  transition-delay: 0.25s;
+}
+
+.form__input{
+  width: 100%;
+  padding: 10px;
+  border: solid 1px #000;
+  font-size: inherit;
+  border-radius: 25px;
+}
+
+.form__btn{
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 50px;
+  border-radius: 25px;
+  border: solid 3px #fff;
+  width: 100%;
+
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+
+  display: flex;
+  justify-content: center;
+}
+
+.form__forgot{
+  color: #000000;
+  text-decoration: none;
+}
+
+.form__input_age{
+  width: 100%;
+  padding: 10px;
+  border: solid 1px #000;
+  font-size: inherit;
+  border-radius: 25px;
+  margin-bottom: 15%;
+}
+
+.age_sex > div{
+  float: left;
+  width: 48.5%;
+  margin-right: 1.5%;
+  align-items: center;
+}
+
+.select_opinion{
+  position: relative;
+  width: 100%;
+}
+.select_opinion_sex select{
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #cccccc;
+  border-radius: 25px;
+  background-color: #fff;
+  border: solid 1px #000;
+
+}
+
+option{
+  font-weight: normal ;
+  display: block;
+  white-space: nowrap;
+  min-height: 1.2rem;
+  padding: 0px 2px 1px;
+}

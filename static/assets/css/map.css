@@ -1,0 +1,13 @@
+#map{
+	width: 1170px;
+    height: 500px;
+    border-radius: 25px;
+    bottom: 17px;
+    right: 86px;
+    box-shadow: 0 5px 45px rgb(250 250 250);
+}
+
+.container_map{
+	justify-content: center;
+	align-items: center;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Meet on the map</title>
+  <link rel="icon" href="../static/assets/img/logo-link.png" type="image/png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/assets/css/main.css">
+</head>
+<body>
+  <!-- notification for small viewports and landscape oriented smartphones -->
+  <div class="device-notification">
+    <a class="device-notification--logo" href="http://127.0.0.1:5000/">
+      <img src="../static/assets/img/logo.png" alt="Meet on the map">
+      <p>Meet on the map</p>
+    </a>
+  </div>
+  <div class="perspective effect-rotate-left">
+    <div class="container"><div class="outer-nav--return"></div>
+    <div id="viewport" class="l-viewport">
+      <div class="l-wrapper">
+        <header class="header">
+          <a class="header--logo" href="http://127.0.0.1:5000/">
+            <img src="../static/assets/img/logo.png" alt="Meet on the map" width="75" height="48">
+            <p>Meet on the map</p>
+          </a>
+          <div class="header--nav-toggle">
+            <p class="header--nav-toggle_btn">Меню</p>
+          </div>
+        </header>
+        <nav class="l-side-nav">
+          <ul class="side-nav">
+            <li class="is-active"><span>Головна</span></li>
+            <li><span>Профіль</span></li>
+            <li><span>Список подій</span></li>
+            <li><span>Створити подію</span></li>
+            <li><span>Про нас</span></li>
+          </ul>
+        </nav>
+        <ul class="l-main-content main-content">
+          <li class="l-section section section--is-active">
+            <div class="intro">
+              <div class="intro--banner">      
+                <link rel="stylesheet" type="text/css" href="../static/assets/css/map.css">
+                <div class="container_map">
+                 <div id="map" ></div>
+               </div>
+               <script
+               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeCxe3fEX3auv-lhC3AOohaIR8Y-KkOBA&callback=initMap&libraries=&v=weekly"
+               async
+               ></script>
+               <script type="text/javascript">
+       // Initialize and add the map
+      function initMap() {
+        const lvivPolytechnic = { lat: 49.8357347618883, lng: 24.01451637443371 };
+        const cent = {lat: {{markers[0][0]}}, lng: {{markers[0][1]}} }
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 14,
+          center: cent,
+        });
+      // The marker, positioned at lvivPolytechnic
+      {% for  mark in markers %}
+        new google.maps.Marker({
+          position:{ lat: {{mark[0]}}, lng: {{mark[1]}} },
+          map: map,
+          });
+      {% endfor %}
+      }
+  </script>
+</div>
+</div>
+</li>
+<li class="l-section section">
+  <link rel="stylesheet" href="../static/assets/css/form-register-log.css">
+  <!-- Профіль -->
+  <link rel="stylesheet" href="../static/assets/css/form-profile.css">
+
+  <form action="/profile" method="post" class="profile">
+      <div class="profile_block">
+          <div class="user_block">
+               <img class="user_img" src="../static/assets/img/user_img.jpg">
+            <p>
+              <input type="text" class="user_block_input_log" name="username" value="Amei" placeholder="Логін">
+            </p>
+            <p>
+              <h3 class="user_block_age">Вік:</h3>
+              <input type="text" class="user_block_input_age" name="age" value="18" placeholder="Вік">
+            </p>
+            <p>
+              <input type="text" class="user_block_input_email" name="email" value="oleg.prusak2004@gmail.com" placeholder="Email">
+            </p>
+            <p>
+              <h3 class="user_block_sex">Стать:</h3>
+              <input type="text" class="user_block_input_sex" name="sex" value="Чоловік" placeholder="Стать">
+            </p>
+            <textarea rows="5" class="user_block_aboutme"  placeholder="Про себе:" ></textarea>
+            <p>
+            <button class="user_block_btn_save">Зберегти</button>
+            </p>
+            <p>
+              <a href="#">
+            <button href= "/map" class="user_block_btn_exit">Вихід</button>
+              </a>
+            </p>
+          </div>
+      </div>
+  </form>
+</li>
+<li class="l-section section">
+<link rel="stylesheet" href="../static/assets/css/form_event_list.css">
+<!-- Список подій   -->
+    <form class="list_form">
+        <div class="list_event_container">
+                <table class="content_event_list">
+                  <thead>
+                  <tr>
+                      <th>Назва</th>
+                      <th>Опис</th>
+                      <th>Локація</th>
+                      <th>Дата</th>
+                      <th>Час</th>
+                      <th>Організатор</th>
+                      <th>Обмеження</th>
+                      <th class="th_participants">Учасники</th>
+                    </tr>
+                  </thead>
+                    {% for event in events %}
+                  <tbody>
+                    <tr>
+                      <td>{{event["name"]}}</td>
+                      <td>{{event["description"]}}</td>
+                      <td>{{event["location"]}}</td>
+                      <td>{{event["date"]}}</td>
+                      <td>{{event["time"]}}</td>
+                      <td>{{event["maker"]}}</td>
+                      <td>{{event["limit"]}}</td>
+                      <td>{{event["participant"]}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+        </div>
+    </form>
+<li class="l-section section">
+  <link rel="stylesheet" href="../static/assets/css/form-event.css">
+  <!-- Форма створення події -->
+  <form action="/creation_events" method="post" class="event_form_container">
+    <div class="evnt_block">
+      <h3 class="event_title">Створити подію</h3>
+      <p>
+        <input type="text" class="event_form_input" name="name" placeholder="Назва події...">  
+      </p>
+      <p>
+        <input type="date" class="event_form_input_date" name="date">
+      </p>
+      <p>
+        <input type="time" class="event_form_input_time" name="time" placeholder="Час"> 
+      </p>
+      <p>
+        <input type="text" class="event_form_input_participants" name="participants" placeholder="Кількість учасників">  
+      </p>
+      <p>
+        <input type="text" class="event_form_input" name="description" placeholder="Опис події...">  
+      </p>
+      <p>
+        <input type="text" class="event_form_input" name="location" placeholder="Локація...">  
+      </p>
+      <p>
+        <input type="text" class="event_form_input" name="maker" placeholder="Організатор...">  
+      </p>
+      <p>
+        <input type="text" class="event_form_input" name="limitation" placeholder="Обмеження...">  
+      </p>
+      <p class="event_btn_center">
+        <button class="event_btn">Створити подію</button>
+      </p>
+    </div>
+  </form>
+</li>
+<li class="l-section section">
+  <link rel="stylesheet" href="../static/assets/css/img_lviv.css">
+  <img src="../static/assets/img/lviv.jpg" class="img_lviv">
+  <div class="contact">
+    <div class="contact--lockup">
+      <div class="modal">
+        <ul class="modal--options">
+          <p><a class="about_us-link" title="facebook" target="_blank" href="https://facebook.com/name"><img src="../static/assets/img/facebook_logo.png" width="50" height="auto"></a></p>
+          <p><a class="u-social-url" title="Instagram" target="_blank" href="https://instagram.com/name"><img src="../static/assets/img/instagram_logo.png" width="50" height="auto"></a></p>
+          <p><a class="u-social-url" title="GitHub" target="_blank" href="https://github.com/"><img src="../static/assets/img/github_logo.png" width="50" height="auto"></a></p>
+        </ul>
+      </div>
+    </div>
+  </div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="outer-nav">
+  <li class="is-active">Головна</li>
+  <li>Профіль</li>
+  <li>Список подій</li>
+  <li>Створити подію</li>
+  <li>Про нас</li>
+</ul>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../static/assets/js/functions-min.js"></script>
+</body>
+</html>

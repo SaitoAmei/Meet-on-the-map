@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Meet on the map</title>
+  <link rel="icon" href="../static/assets/img/logo-link.png" type="image/png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/assets/css/main.css">
+
+</head>
+<body>
+
+  <!-- notification for small viewports and landscape oriented smartphones -->
+  <div class="device-notification">
+    <a class="device-notification--logo" href="#0">
+      <img src="../static/assets/img/logo.png" alt="Meet on the map">
+      <p>Meet on the map</p>
+    </a>
+  </div>
+
+  <div class="perspective effect-rotate-left">
+    <div class="container"><div class="outer-nav--return"></div>
+    <div id="viewport" class="l-viewport">
+      <div class="l-wrapper">
+        <header class="header">
+          <a class="header--logo" href="#0">
+            <img src="../static/assets/img/logo.png" alt="Meet on the map" width="75" height="48">
+            <p>Meet on the map</p>
+            <!-- <button class="header__reg_btn">Профіль</button> -->
+          </a>
+          <div class="header--nav-toggle">
+            <span></span>
+          </div>
+        </header>
+        <nav class="l-side-nav">
+          <ul class="side-nav">
+            <li class="is-active"><span>Головна</span></li>
+            <li><span>Профіль</span></li>
+            <li><span>SOMETHING</span></li>
+            <li><span>Про нас</span></li>
+          </ul>
+        </nav>
+        <ul class="l-main-content main-content">
+          <li class="l-section section section--is-active">
+            <div class="intro">
+              <div class="intro--banner"> 
+                <img src="../static/assets/img/introduction-visual.png" alt="Welcome" height="600" width="1200">
+
+                 <div id="map" style="height: 580px; width: 1150px;"></div>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeCxe3fEX3auv-lhC3AOohaIR8Y-KkOBA&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+    <script type="text/javascript">
+      // Initialize and add the map
+       function initMap() {
+      const lvivPolytechnic = { lat: {{_lat}}, lng: {{_long}} };
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 17,
+        center: lvivPolytechnic,
+      });
+      // The marker, positioned at lvivPolytechnic
+      let marker = [];
+
+      new google.maps.Marker({
+        position: lvivPolytechnic,
+        map: map,
+      });
+    }
+    </script>
+               
+              </div>
+
+            </div>
+          </li>
+          <li class="l-section section">
+
+            <link rel="stylesheet" href="../static/assets/css/form-register-log.css">
+            <script src="../static/assets/js/script-register-log.js" defer ></script>
+
+            <div class="reg_form">
+
+              <!-- Контейнер-->
+              <article class="container_reg">
+
+                <!-- Внутрішній блок  -->
+                <div class="block">
+
+                  <section class="block__item block-item">
+                    <h2 class="block-item__title">У вас вже є обліковий запис?</h2>
+                    <button class="block-item__btn signin-btn">Увійти</button>
+                  </section>
+
+                  <div class="block__item block-item">
+                    <h2 class="block-item__title">У вас немає облікового запису</h2>
+                    <button class="block-item__btn signup-btn">Зареєструватись</button>
+                  </div>
+
+                </div>
+
+                <!-- Блок форми -->
+                <div class="form-box">
+
+                  <!-- Форма входу -->
+                  <form action="/login" method="post" class="form form_signin">
+                    <h3 class="form__title">Вхід</h3>
+
+                    <p>
+                      <input type="text" class="form__input" name="username" placeholder="Логін">  
+                    </p>
+                    <p>
+                      <input type="password" class="form__input" name="password" placeholder="Пароль">  
+                    </p>
+                    <p>
+                      <button class="form__btn">Увійти</button>
+                    </p>
+                    <p>
+                      <a href="#" class="form__forgot">Забули пароль?</a>
+                    </p>
+                  </form>
+
+                  <!-- Форма регістрації -->
+                  <form action="/registration" method="post" class="form form_signup">
+                    <h3 class="form__title">Реєстрація</h3>
+
+                    <p>
+                      <input type="text" class="form__input" name="username" placeholder="Логін">  
+                    </p>
+                    <p>
+                      <input type="email" class="form__input" name="email" placeholder="Email">  
+                    </p>
+                    <p>
+                      <input type="password" class="form__input" name="password" placeholder="Пароль"> 
+                    </p>
+                    <p>
+                      <input type="password" class="form__input" name="cpassword" placeholder="Підтвердіть пароль">  
+                    </p>
+
+                    <div class="age_sex">
+
+                      <div>
+                        <input type="text" class="form__input_age" name="age" placeholder="Вік">  
+                      </div>
+
+                        <div class="select_opinion_sex"  >
+                          <select name="sex">
+                            <option>Стать</option>
+                            <option>Чоловік</option>
+                            <option>Жінка</option>
+                          </select>
+                        </div>
+
+                      </div>
+
+                    <p class="btn__center">
+                      <button class="form__btn">Зареєструватися</button>
+                    </p>
+                    
+                  </form>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </li>
+          <li class="l-section section"></li>
+          <li class="l-section section">
+            <div class="contact">
+              <div class="contact--lockup">
+                <div class="modal">
+                  <ul class="modal--options">
+                    <p><a class="about_us-link" title="facebook" target="_blank" href="https://facebook.com/name"><img src="../static/assets/img/facebook_logo.png" width="50" height="auto"></a></p>
+                    <p><a class="u-social-url" title="Instagram" target="_blank" href="https://instagram.com/name"><img src="../static/assets/img/instagram_logo.png" width="50" height="auto"></a></p>
+                    <p><a class="u-social-url" title="GitHub" target="_blank" href="https://github.com/"><img src="../static/assets/img/github_logo.png" width="50" height="auto"></a></p>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ul class="outer-nav">
+    <li class="is-active">Головна</li>
+    <li>Реєстрація</li>
+    <li>Профіль</li>
+    <li>Про нас</li>
+  </ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../static/assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
+  <script src="../static/assets/js/functions-min.js"></script>
+</body>
+</html>

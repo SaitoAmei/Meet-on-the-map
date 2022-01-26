@@ -1,0 +1,59 @@
+.list_form{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list_event_form{
+    color: black;
+    border-radius: 25px;
+    position: absolute;
+    top: 0;
+    left: 203px;
+    width: 1020px;
+    height: 800px;
+    margin-top: 105px;
+    background-color: #fff;
+}
+
+.content_event_list {
+    border-collapse: collapse;
+    overflow: hidden;
+    background-color: #fff;
+    color: #000;
+    border-radius: 25px;
+    margin-top: -60px;
+    left: 20px;
+    position: relative;
+    box-shadow: 0 5px 45px rgb(250 250 250);
+}
+.content_event_list thead tr {
+  background-color: #5194bd;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 800;
+  height: 45px;
+}
+
+.ccontent_event_list th,
+.content_event_list td {
+  padding: 12px 15px;
+}
+
+
+.content_event_list tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content_event_list tbody tr:last-of-type {
+    border-bottom: 4px solid #5194bd;
+    text-align: center;
+}
+
+.content_event_list tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+.th_participants{
+    padding-right: 12px;
+}

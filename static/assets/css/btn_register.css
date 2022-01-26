@@ -1,0 +1,24 @@
+.header__reg_btn{
+   position: absolute; 
+   left: 50%;
+   padding: 0 20px;
+   line-height: 30px;
+   font-weight: 700;
+   text-transform: uppercase;
+   background-color: #5194bd;
+   border: none;
+   color: #fff;
+   visibility: hidden;
+    -webkit-transition: opacity .4s ease-in-out,visibility 0s .4s;
+    transition: opacity .4s ease-in-out,visibility 0s .4s;
+    opacity: 0;
+}
+
+
+.header__reg_btn.is-active{
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity .4s ease-in-out .4s;
+    transition: opacity .4s ease-in-out .4s;
+
+}
